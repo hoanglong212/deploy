@@ -1,0 +1,44 @@
+.chart {
+  background: linear-gradient(180deg, #fffaf3 0%, #ffffff 100%);
+  border-radius: 18px;
+  padding: 14px;
+  border: 1px solid rgba(141, 93, 15, 0.12);
+}
+
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.axis path,
+.axis line {
+  stroke: rgba(74, 55, 40, 0.35);
+}
+
+.axis text {
+  fill: rgba(74, 55, 40, 0.85);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Histogram bars */
+.bar-rect {
+  fill: rgba(141, 93, 15, 0.85);
+  stroke: #fffaf3;
+  stroke-width: 2;
+}
+.bar-rect:hover {
+  fill: rgba(141, 93, 15, 1);
+}
+
+/* Tooltip styles for scatterplot */
+.tooltip-bg {
+  fill: rgba(141, 93, 15, 0.85);
+}
+
+.tooltip-text {
+  fill: #fff;
+  font-weight: 800;
+  font-size: 12px;
+}

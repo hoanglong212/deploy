@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 4.1 SVG House</title>
+    <style>
+      :root {
+        --bg: #f6efe2;
+        --panel: #fffaf2;
+        --text: #4d3828;
+        --accent: #b9712f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, #f3e5c8 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      .page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 48px 20px 56px;
+      }
+
+      .intro {
+        text-align: center;
+        background: rgba(255, 250, 242, 0.9);
+        border: 1px solid #ead8be;
+        border-radius: 24px;
+        padding: 28px 24px;
+        box-shadow: 0 18px 40px rgba(97, 64, 31, 0.08);
+      }
+
+      .intro h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 3.25rem);
+        color: #7a4a18;
+      }
+
+      .intro p {
+        margin: 0 auto;
+        max-width: 680px;
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      .canvas-shell {
+        margin-top: 28px;
+        background: var(--panel);
+        border-radius: 30px;
+        padding: 20px;
+        border: 1px solid #ead8be;
+        box-shadow: 0 24px 55px rgba(97, 64, 31, 0.12);
+      }
+
+      .responsive-svg-container svg {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="intro">
+        <h1>My SVG House</h1>
+        <p>
+          A polished SVG house scene built with D3. The composition adds a
+          warmer background, layered landscape, and small details to make the
+          original drawing feel more finished.
+        </p>
+      </section>
+
+      <section class="canvas-shell">
+        <div class="responsive-svg-container"></div>
+      </section>
+    </main>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

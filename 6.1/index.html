@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 6 - Interactivity</title>
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/histogram.css" />
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="header">
+        <h1>Exercise 6 - Interactivity</h1>
+        <p>
+          6.1 Histogram filtering + 6.2 Scatterplot tooltips using TV dataset.
+        </p>
+      </header>
+
+      <!-- FILTERS (for histogram) -->
+      <section class="panel">
+        <div class="filters-block">
+          <div class="filters-title">Screen Technology</div>
+          <div id="filters-tech" class="filters"></div>
+        </div>
+
+        <div class="filters-block" style="margin-top: 12px">
+          <div class="filters-title">Screen Size (inches)</div>
+          <div id="filters-size" class="filters"></div>
+        </div>
+      </section>
+
+      <!-- HISTOGRAM -->
+      <section class="panel">
+        <h2 class="panel-title">6.1 Histogram: Energy Consumption</h2>
+        <div id="chart-hist" class="chart"></div>
+      </section>
+
+      <!-- SCATTERPLOT -->
+      <section class="panel">
+        <h2 class="panel-title">6.2 Scatterplot: Energy vs Star Rating</h2>
+        <div id="chart-scatter" class="chart"></div>
+      </section>
+    </div>
+
+    <!-- JS order matters -->
+    <script src="js/shared-constants.js"></script>
+    <script src="js/histogram.js"></script>
+    <script src="js/scatterplot.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/load-data.js"></script>
+  </body>
+</html>
