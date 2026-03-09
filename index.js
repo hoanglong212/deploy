@@ -105,7 +105,10 @@ function initTVCards() {
       return res.text();
     })
     .then((csvText) => {
-      const parsed = Papa.parse(csvText, { header: true, skipEmptyLines: true });
+      const parsed = Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+      });
       const tvData = parsed.data;
 
       const bestValue = tvData
@@ -113,7 +116,9 @@ function initTVCards() {
           const power = toNumber(tv.Avg_mode_power);
           return power !== null && power <= 100;
         })
-        .sort((a, b) => toNumber(a.Avg_mode_power) - toNumber(b.Avg_mode_power))[0];
+        .sort(
+          (a, b) => toNumber(a.Avg_mode_power) - toNumber(b.Avg_mode_power),
+        )[0];
 
       const popular = tvData
         .filter((tv) => {
@@ -134,7 +139,9 @@ function initTVCards() {
           const power = toNumber(tv.Avg_mode_power);
           return power !== null && power > 250;
         })
-        .sort((a, b) => toNumber(b.Avg_mode_power) - toNumber(a.Avg_mode_power))[0];
+        .sort(
+          (a, b) => toNumber(b.Avg_mode_power) - toNumber(a.Avg_mode_power),
+        )[0];
 
       renderTV([bestValue, popular, premium, outdated].filter(Boolean));
     })
@@ -152,7 +159,10 @@ function createChartSvg(containerSelector, width, height, margin) {
 
   return container
     .append("svg")
-    .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+    .attr(
+      "viewBox",
+      `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`,
+    )
     .attr("preserveAspectRatio", "xMidYMid meet")
     .style("width", "100%")
     .style("height", "auto")
@@ -190,7 +200,11 @@ function createScatterPlot(data, svg, width, height) {
     (d) => categories.includes(d.screenSize) && d.avgPower !== null,
   );
 
-  const xScale = d3.scaleBand().domain(categories).range([0, width]).padding(0.4);
+  const xScale = d3
+    .scaleBand()
+    .domain(categories)
+    .range([0, width])
+    .padding(0.4);
   const yScale = d3
     .scaleLinear()
     .domain([0, d3.max(filteredData, (d) => d.avgPower) || 0])
@@ -233,7 +247,12 @@ function createScatterPlot(data, svg, width, height) {
 }
 
 function initScatterPlot(width, height, margin) {
-  const svg = createChartSvg(".responsive-svg-container", width, height, margin);
+  const svg = createChartSvg(
+    ".responsive-svg-container",
+    width,
+    height,
+    margin,
+  );
 
   if (!svg) {
     return;
@@ -313,7 +332,13 @@ function initTechBarChart(width, height, margin) {
 }
 
 function initBrandBarChart(width, height, margin) {
-  const svgBrand = createChartSvg(".brand-bar-container", width, height, margin);
+  const brandMargin = { ...margin, bottom: Math.max(margin.bottom, 130) };
+  const svgBrand = createChartSvg(
+    ".brand-bar-container",
+    width,
+    height,
+    brandMargin,
+  );
 
   if (!svgBrand) {
     return;
